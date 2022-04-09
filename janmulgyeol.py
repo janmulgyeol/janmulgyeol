@@ -43,7 +43,7 @@ t = 0
 dt = 0.01
 deg_theta = 0
  
-# 텍스트를 위한 라벨 객체를 생성합니다
+# 텍스트를 위한 라벨 객체를 생성
 label1 = label()
 label2 = label()
 label3 = label()
@@ -52,21 +52,21 @@ while True:
     rate(100)
     t += dt
  
-    # 운동방정식으로 각가속도를 계산하고 이를 적분해 각속도,각도를 얻습니다
+    # 운동방정식으로 각가속도를 계산하고 이를 적분해 각속도,각도 구함
     alpha = (g*sin(theta))/r
     omega += alpha*dt
     theta += omega*dt
  
-    # 각도를 deg단위로 변환합니다
+    # 각도를 deg단위로 변환
     deg_theta = 180 - theta*180./pi
  
  
-    # x축 방향의 속도를 계산합니다 
+    # x축 방향의 속도를 계산 
     # 실제속도 = 속도의 최대값 - 현재각도에서 속도값(위치에너지에 따른)
     v = v_max - sqrt(2*g*r*(1-cos(pi - theta)))
  
  
-    # 줄의 위치와 공의 위치를 업데이트합니다
+    # 줄의 위치와 공의 위치를 업데이트
     line.modify(0, bar.pos + vector(0,0,1))
     line.modify(1, ball.pos)
     ball.pos = vector(r*sin(theta), r*cos(theta), 0)
