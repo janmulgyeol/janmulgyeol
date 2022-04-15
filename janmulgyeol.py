@@ -7,10 +7,10 @@ scene.width = 400
 scene.height = 700
  
 # 단진자와 이를 받쳐주는 바닥과 봉, 단진자의 실을 생성
-ball = sphere(pos=vector(0,0,0), radius=0.15, color=color.blue, opacity=0.8)
-base = box(pos=vector(0,-2.5,-1), size=vector(2,0.1,2))
-wall = box(pos=vector(0,-1,-1), size=vector(0.1,3,0.1))
-bar = cylinder(pos=vector(0,0,-1), radius=0.05, axis=vector(0,0,1), color=color.yellow)
+ball = sphere(pos=vector(0,0,0), radius=0.15, color=color.white, opacity=0.8)
+base = box(pos=vector(0,-2.5,-1), color=color.white, size=vector(2,0.1,2))
+wall = box(pos=vector(0,-1,-1), color=color.white, size=vector(0.1,3,0.1))
+bar = cylinder(pos=vector(0,0,-1), radius=0.05, axis=vector(0,0,1), color=color.white)
 line = curve(pos=bar.pos, color=color.gray(0.5))
 line.append(ball.pos)
   
@@ -21,7 +21,7 @@ theta = (180 - theta0)*pi / 180  # 초기각도 (rad)
 g = 9.81                        # 중력가속도
 
 # 속도를 가시화하기 위한 화살표객체를 생성
-velArrow = arrow(pos=ball.pos, axis=vector(0,0,0) , color=color.yellow)
+velArrow = arrow(pos=ball.pos, axis=vector(0,0,0) , color=color.white)
 velFlag = 1
  
 omega = 0   # 각속도
@@ -68,3 +68,4 @@ while True:
     label2.text = 'time : %.2f s' % (t)
     label3.pos = base.pos + vector(0,-0.9,0)
     label3.text = 'vel_x : %.2f m/s' % (v)
+
